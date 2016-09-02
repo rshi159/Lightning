@@ -27,20 +27,22 @@ void draw()
     stroke(255,255,(int)(Math.random()*255));
     endX = endX + randomX;
     endY = endY + randomY;
-     (randomY > 16 || randomY < -16)
-     {
-       endX2 = endX;
-       endY2 = endY;
-       while (endX2 < 1280)
-       {
-       	 stroke(255,255,(int)(Math.random()*255));
-       	 endX2 = endX2 + (int)(Math.random()*25);
-         endY2 = endY2 + (int)(Math.random()*36 - 18);
-         line (startX,startY,endX,endY);
-  		 startX2 = endX2;
-  	   	 startY2 = endY2;
-       }
-     }   	 
+     if (randomY > 16){
+      endY2 = endY;
+      endX2 = endX;
+	      while (randomY > 16){
+		      endY2 = endY2 + (int)(Math.random()*36 - 18);
+		      endX2 = endX2 + (int)(Math.random()*25);
+		      startX2 = endX;
+		      startY2 = endY;
+		      line (startX2,startY2,endX2,endY2);
+		      startY2 = endY2;
+		      startX2 = endX2;
+      if (endX2 > 1280){
+      	randomY = 15;
+      }
+     }
+    }
   	line (startX,startY,endX,endY);
   	startX = endX;
   	startY = endY;
